@@ -6,7 +6,7 @@ import React, {
   useState,
 } from "react";
 import { PlatFormType } from "../@types/platform";
-import NaverApiLoader from "../api/NaverScriptLoader";
+import NaverApiLoader from "../api/naverScriptLoader";
 
 export type NaverMapProps<T extends PlatFormType> = PropsWithChildren<{
   client:

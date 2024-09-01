@@ -6,6 +6,7 @@ class NaverApiLoader<T extends PlatFormType = "ncp"> {
   private readonly platform: T | undefined;
   public static instance: typeof naver.maps;
   private readonly platFormURL: PlatFormURL<T> | undefined;
+  private static isAddNaverScript: boolean = false;
 
   constructor({ client }: NaverMapProps<T>) {
     if (NaverApiLoader.instance || (window.naver && window.naver.maps)) {
@@ -34,24 +35,25 @@ class NaverApiLoader<T extends PlatFormType = "ncp"> {
     });
   }
   private naverScript(callback: (err?: ErrorEvent) => void) {
-    if (NaverApiLoader.instance) {
-      console.warn("load된 naver map script가 존재합니다.");
-      callback();
-      return;
-    }
     const that = this;
     function l() {
+      if (NaverApiLoader.instance || NaverApiLoader.isAddNaverScript) {
+        console.warn("load된 naver map script가 존재합니다.");
+        return;
+      }
+      NaverApiLoader.isAddNaverScript = true;
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = that.platFormURL || "";
       script.defer = true;
       script.async = true;
-      script.onload = () => {
+      script.addEventListener("error", (e: ErrorEvent) => {
+        NaverApiLoader.isAddNaverScript = false;
+        callback(e);
+      });
+      script.addEventListener("load", () => {
         NaverApiLoader.instance = window.naver.maps;
         callback();
-      };
-      script.addEventListener("error", (e: ErrorEvent) => {
-        callback(e);
       });
       document.head.appendChild(script);
     }
