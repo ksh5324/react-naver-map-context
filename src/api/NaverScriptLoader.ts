@@ -1,5 +1,5 @@
-import { PlatFormType, PlatFormURL } from "../@types/platform";
-import { NaverMapProps } from "../components/NaverMapProvider";
+import type { PlatFormType, PlatFormURL } from "../@types/platform";
+import type { NaverMapProps } from "../@types/naverMap";
 
 class NaverApiLoader<T extends PlatFormType = "ncp"> {
   private readonly clientKey: string | undefined;

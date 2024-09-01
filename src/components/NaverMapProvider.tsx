@@ -1,45 +1,11 @@
-import React, {
-  createContext,
-  PropsWithChildren,
-  useContext,
+import  {
   useEffect,
   useState,
 } from "react";
-import { PlatFormType } from "../@types/platform";
+import type { PlatFormType } from "../@types/platform";
+import type { NaverMapProps } from "../@types/naverMap";
 import NaverApiLoader from "../api/NaverScriptLoader";
-
-export type NaverMapProps<T extends PlatFormType> = PropsWithChildren<{
-  client:
-    | {
-        key: string;
-        platform: T;
-      }
-    | string;
-  callback?: VoidFunction;
-}>;
-
-type Context = { isLoaded: boolean; setIsLoaded: (bool: boolean) => unknown };
-export const NaverContext = createContext<Context>({} as Context);
-
-const NaverInnerProvider = <T extends PlatFormType>({
-  client,
-  callback,
-  children,
-}: NaverMapProps<T>) => {
-  const { setIsLoaded } = useContext(NaverContext);
-  useEffect(() => {
-    new NaverApiLoader<T>({
-      client,
-    })
-      .loadScript()
-      .then(() => {
-        callback && callback();
-        setIsLoaded(true);
-      })
-      .catch((e) => console.log(e));
-  }, []);
-  return <>{children}</>;
-};
+import { NaverMapLoadContext } from "../contexts/naverMapLoad";
 
 const NaverMapProvider = <T extends PlatFormType>({
   client,
@@ -47,14 +13,27 @@ const NaverMapProvider = <T extends PlatFormType>({
   children,
 }: NaverMapProps<T>) => {
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const neverMapApiReady = () => {
+    setIsLoaded(true)
+  }
+
+  useEffect(() => {
+    new NaverApiLoader<T>({
+      client,
+    })
+      .loadScript()
+      .then(() => {
+        callback && callback();
+        neverMapApiReady();
+      })
+      .catch((e) => console.error(e));
+  }, []);
+
   return (
-    <NaverContext.Provider value={{ isLoaded, setIsLoaded }}>
-      <NaverInnerProvider
-        client={client}
-        callback={callback}
-        children={children}
-      />
-    </NaverContext.Provider>
+    <NaverMapLoadContext.Provider value={isLoaded}>
+      {children}
+    </NaverMapLoadContext.Provider>
   );
 };
 
