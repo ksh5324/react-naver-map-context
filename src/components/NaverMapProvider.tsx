@@ -11,7 +11,7 @@ const NaverMapProvider = <T extends PlatFormType>({
 }: NaverMapProps<T>) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const neverMapApiReady = () => {
+  const naverMapApiReady = () => {
     setIsLoaded(true);
   };
 
@@ -21,8 +21,8 @@ const NaverMapProvider = <T extends PlatFormType>({
     })
       .loadScript()
       .then(() => {
+        naverMapApiReady();
         callback && callback();
-        neverMapApiReady();
       })
       .catch((e) => console.error(e));
   }, []);
