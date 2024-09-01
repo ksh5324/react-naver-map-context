@@ -1,10 +1,7 @@
-import  {
-  useEffect,
-  useState,
-} from "react";
+import { useEffect, useState } from "react";
+import NaverApiLoader from "../api/NaverScriptLoader";
 import type { PlatFormType } from "../@types/platform";
 import type { NaverMapProps } from "../@types/naverMap";
-import NaverApiLoader from "../api/NaverScriptLoader";
 import { NaverMapLoadContext } from "../contexts/naverMapLoad";
 
 const NaverMapProvider = <T extends PlatFormType>({
@@ -15,8 +12,8 @@ const NaverMapProvider = <T extends PlatFormType>({
   const [isLoaded, setIsLoaded] = useState(false);
 
   const neverMapApiReady = () => {
-    setIsLoaded(true)
-  }
+    setIsLoaded(true);
+  };
 
   useEffect(() => {
     new NaverApiLoader<T>({
