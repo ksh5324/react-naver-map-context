@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import NaverApiLoader from "../api/naverScriptLoader";
 import { MapEventFunctionType } from "../@types/NaverEvent";
-import { NaverContext } from "./NaverMapProvider";
+import { useNaverMapIsLoaded } from "../contexts/naverMapLoad";
 // import useListener from "../hooks/useListener";
 
 type MapProps = PropsWithChildren<
@@ -24,7 +24,7 @@ const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
   ref
 ) {
   const [maps, setMaps] = useState<naver.maps.Map>();
-  const { isLoaded } = useContext(NaverContext);
+  const isLoaded = useNaverMapIsLoaded();
 
   useEffect(() => {
     if (!isLoaded) {

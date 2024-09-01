@@ -11,4 +11,4 @@ export type SubModuleType =
   | "visualization";
 type SubModuleString = `&submodules=${string}`;
 type LangString = `&language=${LangType}`;
-type LangType = "en" | "ko" | "zh" | "ja";
+export type LangType = "en" | "ko" | "zh" | "ja";

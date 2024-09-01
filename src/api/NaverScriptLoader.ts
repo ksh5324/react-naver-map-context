@@ -1,5 +1,5 @@
-import { PlatFormType, PlatFormURL } from "../@types/platform";
-import { NaverMapProps } from "../components/NaverMapProvider";
+import type { PlatFormType, PlatFormURL } from "../@types/platform";
+import type { NaverMapProps } from "../@types/naverMap";
 
 class NaverApiLoader<T extends PlatFormType = "ncp"> {
   private readonly clientKey: string | undefined;
@@ -20,7 +20,11 @@ class NaverApiLoader<T extends PlatFormType = "ncp"> {
     } else if (typeof client === "object") {
       this.clientKey = client.key;
       this.platform = client.platform;
-      this.platFormURL = `https://oapi.map.naver.com/openapi/v3/maps.js?${this.platform}ClientId=${this.clientKey}`;
+      this.platFormURL = `https://oapi.map.naver.com/openapi/v3/maps.js?${
+        this.platform
+      }ClientId=${this.clientKey}${
+        client.submodule && `&submodule=${client.submodule.join(",")}`
+      }${client.lang && `&language=${client.lang}`}`;
     }
   }
   public loadScript(): Promise<void> {
