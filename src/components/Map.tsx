@@ -7,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import NaverApiLoader from "../api/naverScriptLoader";
+import NaverApiLoader from "../api/NaverScriptLoader";
 import { MapEventFunctionType } from "../@types/NaverEvent";
 import { useNaverMapIsLoaded } from "../contexts/naverMapLoad";
 // import useListener from "../hooks/useListener";
