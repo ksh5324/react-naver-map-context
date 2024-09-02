@@ -1,5 +1,7 @@
 import React, {
+  CSSProperties,
   forwardRef,
+  HTMLAttributes,
   PropsWithChildren,
   useContext,
   useEffect,
@@ -16,11 +18,20 @@ type MapProps = PropsWithChildren<
   {
     mapId: string;
     mapOptions?: naver.maps.MapOptions;
+    style?: CSSProperties;
+    className?: HTMLAttributes<HTMLDivElement>['className'];
   } & MapEventFunctionType
 >;
 
 const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
-  { mapId, children, mapOptions, ...Events },
+  { 
+    mapId, 
+    children, 
+    mapOptions, 
+    style = { width: "400px", height: "400px"}, 
+    className, 
+    ...Events
+  },
   ref
 ) {
   const [maps, setMaps] = useState<naver.maps.Map>();
@@ -53,7 +64,7 @@ const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
   }, []);
 
   return (
-    <div style={{ width: "400px", height: "400px" }} id={mapId}>
+    <div id={mapId} style={style} className={className}>
       {children}
     </div>
   );
