@@ -3,16 +3,12 @@ import React, {
   forwardRef,
   HTMLAttributes,
   PropsWithChildren,
-  useContext,
-  useEffect,
   useImperativeHandle,
-  useRef,
   useState,
 } from "react";
 import NaverApiLoader from "../api/NaverScriptLoader";
 import { MapEventFunctionType } from "../@types/NaverEvent";
-import { useNaverMapIsLoaded } from "../contexts/naverMapLoad";
-// import useListener from "../hooks/useListener";
+import useMapEffect from "../hooks/useMapEffect";
 
 type MapProps = PropsWithChildren<
   {
@@ -35,19 +31,14 @@ const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
   ref
 ) {
   const [maps, setMaps] = useState<naver.maps.Map>();
-  const isLoaded = useNaverMapIsLoaded();
 
-  useEffect(() => {
-    if (!isLoaded) {
-      return;
-    }
+  useMapEffect(() => {
     setMaps(new NaverApiLoader.instance.Map(mapId, mapOptions));
-  }, [isLoaded]);
-  // useListener(maps, Events);
 
-  useEffect(() => {
-    console.log(maps);
-  }, [maps]);
+    return () => {
+      maps?.destroy();
+    };
+  });
 
   useImperativeHandle(
     ref,
@@ -56,12 +47,6 @@ const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
     },
     [maps]
   );
-
-  useEffect(() => {
-    return () => {
-      maps?.destroy();
-    };
-  }, []);
 
   return (
     <div id={mapId} style={style} className={className}>
