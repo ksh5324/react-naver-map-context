@@ -83,8 +83,15 @@ type EventParamType = {
   [EventType.ZOOM_START]: never;
 };
 type OnEventListener<T extends EventType> = T extends `${infer R}${infer Rest}`
-  ? `on${Uppercase<R>}${Rest}` | `on${Uppercase<R>}${Rest}Once`
+  ?
+      | `on${Uppercase<R>}${Rest extends `${infer R}_changed`
+          ? `${R}Changed`
+          : Rest}`
+      | `on${Uppercase<R>}${Rest extends `${infer R}_changed`
+          ? `${R}Changed`
+          : Rest}Once`
   : `on${Uppercase<T>}`;
+
 
 type RecordEventType<T extends EventType> = {
   [k in T as OnEventListener<k>]?: (

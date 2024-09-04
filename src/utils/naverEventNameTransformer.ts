@@ -12,7 +12,8 @@ export function transformToNaverEventName(eventName: string): {
 } {
   const withoutPrefix = removeOnPrefix(eventName);
   const { eventName: withoutSuffix, isOnce } = removeOnceSuffix(withoutPrefix);
-  const transformedEventName = lowercaseFirst(withoutSuffix);
+  const underscoreEventName = transformChangedToUnderscore(withoutSuffix);
+  const transformedEventName = lowercaseFirst(underscoreEventName);
 
   return { eventName: transformedEventName, isOnce };
 }
@@ -32,4 +33,8 @@ export function removeOnceSuffix(eventName: string): {
     eventName: isOnce ? eventName.slice(0, -4) : eventName,
     isOnce,
   };
+}
+
+export function transformChangedToUnderscore(eventName: string): string {
+  return eventName.replace(/Changed$/, "_changed");
 }
