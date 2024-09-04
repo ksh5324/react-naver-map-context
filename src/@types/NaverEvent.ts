@@ -138,3 +138,17 @@ export const MapEventType = [
 export type MapEventFunctionType = RecordEventType<
   (typeof MapEventType)[number]
 >;
+
+export type EventTargetType =
+  | naver.maps.Map
+  | naver.maps.Marker
+  | naver.maps.InfoWindow
+  | naver.maps.Polygon
+  | naver.maps.Polyline
+  | naver.maps.Rectangle
+  | naver.maps.Circle;
+
+export type EventFunctionType<T extends EventTargetType> =
+  T extends naver.maps.Map ? MapEventFunctionType : never;
+
+export type NaverEventFunctionObject = RecordEventType<EventType>;
