@@ -1,9 +1,10 @@
-import React, { forwardRef, useImperativeHandle, useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import type { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 import NaverApiLoader from "../api/NaverScriptLoader";
-import type { MapEventFunctionType } from "../@types/NaverEvent";
+import type { NaverEventFunctionObject } from "../@types/NaverEvent";
 import useMapEffect from "../hooks/useMapEffect";
 import useNaverEvent from "../hooks/useNaverEvent";
+import { OptionalRecord } from "../@types/generic";
 
 type MapProps = PropsWithChildren<
   {
@@ -11,7 +12,7 @@ type MapProps = PropsWithChildren<
     mapOptions?: naver.maps.MapOptions;
     style?: CSSProperties;
     className?: HTMLAttributes<HTMLDivElement>["className"];
-  } & MapEventFunctionType
+  } & OptionalRecord<keyof NaverEventFunctionObject, (e: any) => any>
 >;
 
 const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(

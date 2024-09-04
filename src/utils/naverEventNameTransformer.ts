@@ -18,8 +18,7 @@ export function transformToNaverEventName(eventName: string): {
 }
 
 export function removeOnPrefix(eventName: string): string {
-  return eventName.startsWith("on") &&
-    eventName[2] === eventName[2].toUpperCase()
+  return eventName.startsWith("on")
     ? eventName.slice(2)
     : eventName;
 }

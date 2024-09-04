@@ -150,3 +150,5 @@ export type EventTargetType =
 
 export type EventFunctionType<T extends EventTargetType> =
   T extends naver.maps.Map ? MapEventFunctionType : never;
+
+export type NaverEventFunctionObject = RecordEventType<EventType>;
