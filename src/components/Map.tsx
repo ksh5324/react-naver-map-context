@@ -5,6 +5,7 @@ import type { NaverEventFunctionObject } from "../@types/NaverEvent";
 import useMapEffect from "../hooks/useMapEffect";
 import useNaverEvent from "../hooks/useNaverEvent";
 import { OptionalRecord } from "../@types/generic";
+import { NaverMapContext } from "../contexts/naverMap";
 
 type MapProps = PropsWithChildren<
   {
@@ -48,7 +49,9 @@ const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
 
   return (
     <div id={mapId} style={style} className={className}>
-      {children}
+      <NaverMapContext.Provider value={maps}>
+        {children}
+      </NaverMapContext.Provider>
     </div>
   );
 });
