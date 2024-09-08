@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react'
-import { useNaverMap } from '../contexts/naverMap'
+import React, { useEffect } from "react";
+import { useNaverMap } from "../contexts/naverMapContext";
 
 const Polygon = () => {
   const navermap = useNaverMap();
 
   useEffect(() => {
-    console.log('polygon: ',navermap)
-  }, [navermap])
-  
-  return (
-    <div>Polygon</div>
-  )
-}
+    console.log("polygon: ", navermap);
+  }, [navermap]);
 
-export default Polygon
+  return <div>Polygon</div>;
+};
+
+export default Polygon;
