@@ -1,6 +1,6 @@
 import { DependencyList, EffectCallback, useEffect } from "react";
 import NaverApiLoader from "../api/NaverScriptLoader";
-import { useNaverMapIsLoaded } from "../contexts/naverMapLoad";
+import { useNaverMapIsLoaded } from "../contexts/naverMapLoadContext";
 
 /**
  * naver map script가 로드되는 시점이 첫 동작입니다.

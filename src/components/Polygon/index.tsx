@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNaverMap } from "../contexts/naverMapContext";
+import { useNaverMap } from "../../contexts/naverMapContext";
 
 const Polygon = () => {
   const navermap = useNaverMap();
