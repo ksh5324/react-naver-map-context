@@ -92,7 +92,6 @@ type OnEventListener<T extends EventType> = T extends `${infer R}${infer Rest}`
           : Rest}Once`
   : `on${Uppercase<T>}`;
 
-
 type RecordEventType<T extends EventType> = {
   [k in T as OnEventListener<k>]?: (
     event: EventParamType[k],

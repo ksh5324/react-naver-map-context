@@ -1,20 +1,10 @@
 import { forwardRef, useImperativeHandle, useMemo, useState } from "react";
-import type { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
-import NaverApiLoader from "../api/NaverScriptLoader";
-import type { NaverEventFunctionObject } from "../@types/NaverEvent";
-import useMapEffect from "../hooks/useMapEffect";
-import useNaverEvent from "../hooks/useNaverEvent";
-import { OptionalRecord } from "../@types/generic";
-import { NaverMapContext } from "../contexts/naverMapContext";
+import NaverApiLoader from "../../api/NaverScriptLoader";
+import useMapEffect from "../../hooks/useMapEffect";
+import useNaverEvent from "../../hooks/useNaverEvent";
+import { NaverMapContext } from "../../contexts/naverMapContext";
 
-type MapProps = PropsWithChildren<
-  {
-    mapId: string;
-    mapOptions?: naver.maps.MapOptions;
-    style?: CSSProperties;
-    className?: HTMLAttributes<HTMLDivElement>["className"];
-  } & OptionalRecord<keyof NaverEventFunctionObject, (e: any) => any>
->;
+import type { MapProps } from "./types";
 
 const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
   {
@@ -29,6 +19,8 @@ const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
 ) {
   const [maps, setMaps] = useState<naver.maps.Map>();
   const naverMapProvidervalue = useMemo(() => ({ map: maps }), [maps]);
+
+  useNaverEvent(maps, Events);
 
   useMapEffect(() => {
     setMaps(new NaverApiLoader.instance.Map(mapId, mapOptions));
@@ -45,8 +37,6 @@ const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
     },
     [maps]
   );
-
-  useNaverEvent(maps, Events);
 
   return (
     <NaverMapContext.Provider value={naverMapProvidervalue}>
