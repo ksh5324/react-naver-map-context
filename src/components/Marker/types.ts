@@ -2,8 +2,9 @@
 export type MakerOptions = {
   /** 마커가 지도에 추가될 때 시작할 애니메이션입니다. */
   animation?: naver.maps.Animation;
+  //naver.maps.Coord | naver.maps.CoordLiteral
   /** 마커의 위치를 나타내는 지도 좌표입니다. */
-  position: naver.maps.Coord | naver.maps.CoordLiteral;
+  position: [number, number] | { x: number; y: number };
   /**
    * 마커의 모양입니다. 이 속성을 설정하지 않으면 기본 아이콘으로 설정합니다. 문자열로 입력할 때는 마커의 아이콘으로 사용할 이미지의 URL을 입력합니다.
    */
