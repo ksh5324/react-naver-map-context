@@ -2,8 +2,8 @@ import { forwardRef, useImperativeHandle, useState } from "react";
 import { useNaverMap } from "../../contexts/naverMapContext";
 import useMapEffect from "../../hooks/useMapEffect";
 import useNaverEvent from "../../hooks/useNaverEvent";
-import { isLatLng } from "../../utils/isLatLng";
 import type { MarkerProps } from "./types";
+import { convertToCoord } from "../../utils/convertToCoord";
 
 const Marker = forwardRef<naver.maps.Marker | undefined, MarkerProps>(
   function Marker(
@@ -30,14 +30,8 @@ const Marker = forwardRef<naver.maps.Marker | undefined, MarkerProps>(
         return;
       }
 
-      let pos: naver.maps.Coord | naver.maps.CoordLiteral;
-
-      if (isLatLng(position)) {
-        pos = new naver.maps.LatLng(position.lat, position.lng);
-      } else {
-        pos = new naver.maps.Point(position.x, position.y);
-      }
-
+      const pos = convertToCoord(position);
+      
       const m = new naver.maps.Marker({
         map: naverMap,
         position: pos,
