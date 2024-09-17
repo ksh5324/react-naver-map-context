@@ -1,15 +1,30 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
 import { useNaverMap } from "../../contexts/naverMapContext";
 import useMapEffect from "../../hooks/useMapEffect";
-import type { MakerOptions } from "./types";
-
-type MarkerProps = MakerOptions;
+import useNaverEvent from "../../hooks/useNaverEvent";
+import { isLatLng } from "../../utils/isLatLng";
+import type { MarkerProps } from "./types";
 
 const Marker = forwardRef<naver.maps.Marker | undefined, MarkerProps>(
-  function Marker({ position, ...options }, ref) {
+  function Marker(
+    {
+      position,
+      animation,
+      clickable,
+      cursor,
+      draggable,
+      icon,
+      shape,
+      title,
+      visible,
+      zIndex,
+      ...Events
+    },
+    ref
+  ) {
     const naverMap = useNaverMap();
     const [marker, setMarker] = useState<naver.maps.Marker>();
-
+    useNaverEvent(marker, Events);
     useMapEffect(() => {
       if (!naverMap) {
         return;
@@ -17,8 +32,8 @@ const Marker = forwardRef<naver.maps.Marker | undefined, MarkerProps>(
 
       let pos: naver.maps.Coord | naver.maps.CoordLiteral;
 
-      if (Array.isArray(position)) {
-        pos = new naver.maps.LatLng(position[0], position[1]);
+      if (isLatLng(position)) {
+        pos = new naver.maps.LatLng(position.lat, position.lng);
       } else {
         pos = new naver.maps.Point(position.x, position.y);
       }
@@ -26,7 +41,15 @@ const Marker = forwardRef<naver.maps.Marker | undefined, MarkerProps>(
       const m = new naver.maps.Marker({
         map: naverMap,
         position: pos,
-        ...(options as Omit<naver.maps.MarkerOptions, "position">),
+        animation,
+        clickable,
+        cursor,
+        draggable,
+        icon,
+        shape,
+        title,
+        visible,
+        zIndex,
       });
 
       setMarker(m);

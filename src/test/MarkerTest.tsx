@@ -6,7 +6,7 @@ const MarkerTest = () => {
   return (
     <>
       <Map mapId="123">
-        <Marker position={[37.3595704, 127.105399]} />
+        <Marker position={{ lat: 37.3595704, lng: 127.105399 }} />
       </Map>
     </>
   );

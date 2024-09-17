@@ -1,6 +1,6 @@
 import { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 import { OptionalRecord } from "../../@types/generic";
-import { NaverEventFunctionObject } from "../../@types/NaverEvent";
+import { MapEventFunctionType } from "../../@types/NaverEvent";
 
 export type MapProps = PropsWithChildren<
   {
@@ -8,5 +8,5 @@ export type MapProps = PropsWithChildren<
     mapOptions?: naver.maps.MapOptions;
     style?: CSSProperties;
     className?: HTMLAttributes<HTMLDivElement>["className"];
-  } & OptionalRecord<keyof NaverEventFunctionObject, (e: any) => any>
+  } & OptionalRecord<keyof MapEventFunctionType, (e: any) => any>
 >;

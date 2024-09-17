@@ -1,10 +1,19 @@
+import type { OptionalRecord } from "../../@types/generic";
+import type { MarkerEventFunctionType } from "../../@types/NaverEvent";
+
+export type LatLng = { lat: number; lng: number };
+export type Point = { x: number; y: number };
+
+export type MarkerProps = MakerOptions &
+  OptionalRecord<keyof MarkerEventFunctionType, (e: any) => any>;
+
 /** Marker를 정의하는 옵션. */
-export type MakerOptions = {
+type MakerOptions = {
   /** 마커가 지도에 추가될 때 시작할 애니메이션입니다. */
   animation?: naver.maps.Animation;
   //naver.maps.Coord | naver.maps.CoordLiteral
   /** 마커의 위치를 나타내는 지도 좌표입니다. */
-  position: [number, number] | { x: number; y: number };
+  position: LatLng | Point;
   /**
    * 마커의 모양입니다. 이 속성을 설정하지 않으면 기본 아이콘으로 설정합니다. 문자열로 입력할 때는 마커의 아이콘으로 사용할 이미지의 URL을 입력합니다.
    */
@@ -16,7 +25,7 @@ export type MakerOptions = {
   /** 마커의 인터랙션 영역입니다. */
   shape?: naver.maps.MarkerShape;
   /** 마커에 마우스 오버 시 나타나는 툴팁 문자열입니다. 이 속성을 설정하지 않거나 빈 문자열로 설정하면 툴팁을 노출하지 않습니다. */
-  title?: string | null;
+  title?: string;
   /** 마커에 마우스 오버 시 나타나는 포인터 모양입니다. */
   cursor?: string;
   /** 마커의 클릭 허용 여부입니다. 이 값이 false이면 마커는 사용자 인터랙션을 받지 않습니다. 또한 cursor 속성값도 반영되지 않습니다. */
