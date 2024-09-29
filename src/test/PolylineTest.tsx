@@ -3,10 +3,8 @@ import Map from "../components/Map";
 import Marker from "../components/Marker";
 import Polyline from "../components/Polyline";
 
-declare type Map = naver.maps.Map;
-
 const PolylineTest = () => {
-  const mapRef = useRef<Map>();
+  const mapRef = useRef<naver.maps.Map>();
   const [pathList, setPathList] = useState([
     { lat: 37.359924641705476, lng: 127.1148204803467 },
     { lat: 37.36343797188166, lng: 127.11486339569092 },
@@ -20,18 +18,23 @@ const PolylineTest = () => {
     { lat: 37.371657839593894, lng: 127.11645126342773 },
     { lat: 37.36855417793982, lng: 127.1207857131958 },
   ]);
+  //   const markerRef = useRef<RefObject<naver.maps.Marker | undefined>[]>([]);
   const clickEvent = (e: any) => {
     var point = e.latlng;
     setPathList((prev) => prev.concat(point));
   };
-  const removePathList = (e: any) => {
-    setPathList((prev) => prev.slice(0, prev.length - 1));
+  const removePathList = (e: any, idx: number) => {
+    setPathList((prev) => prev.filter((_, i) => i !== idx));
   };
   return (
     <Map ref={mapRef} mapId="123" onClick={clickEvent}>
       <Polyline path={pathList} />
       {pathList.map((path, idx) => (
-        <Marker position={path} key={idx} onClick={removePathList} />
+        <Marker
+          position={path}
+          key={idx}
+          onClick={(e) => removePathList(e, idx)}
+        />
       ))}
     </Map>
   );

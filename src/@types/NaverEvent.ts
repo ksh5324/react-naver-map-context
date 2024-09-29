@@ -203,3 +203,9 @@ export type EventFunctionType<T extends EventTargetType> =
   T extends naver.maps.Map ? NaverEventFunctionObject : never;
 
 export type NaverEventFunctionObject = RecordEventType<EventType>;
+export type EventProps<
+  T extends Record<string, unknown>,
+  U extends EventTargetType
+> = {
+  [t in keyof T]?: (e: T[t], target: U) => any;
+};
