@@ -1,10 +1,12 @@
-import type { OptionalRecord } from "../../@types/generic";
-import type { PolygonEventFunctionType } from "../../@types/NaverEvent";
+import type {
+  EventProps,
+  PolygonEventFunctionType,
+} from "../../@types/NaverEvent";
 import type { LatLng, Point } from "../Marker/types";
 
 export type PolygonProps = PolygonOptions &
-  OptionalRecord<keyof PolygonEventFunctionType, (e: any) => any>;
+  EventProps<PolygonEventFunctionType, naver.maps.Polygon>;
 
 type PolygonOptions = {
-  paths: (LatLng[] | Point[])[];
+  paths: (LatLng | Point | naver.maps.Coord)[][];
 } & Omit<naver.maps.PolygonOptions, "paths" | "map">;

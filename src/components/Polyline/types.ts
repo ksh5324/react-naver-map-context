@@ -5,6 +5,6 @@ import type {
 import type { LatLng, Point } from "../Marker/types";
 
 export type PolylineProps = {
-  path: (LatLng | naver.maps.LatLng)[] | (Point | naver.maps.Point)[];
+  path: (LatLng | Point | naver.maps.Coord)[];
 } & Omit<naver.maps.PolylineOptions, "path" | "map"> &
   EventProps<PolylineEventFunctionType, naver.maps.Polyline>;

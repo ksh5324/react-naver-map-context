@@ -2,10 +2,10 @@ import React, { useRef, useState } from "react";
 import Map from "../components/Map";
 import Polygon from "../components/Polygon";
 import Marker from "../components/Marker";
-import type { LatLng, Point } from "../components/Marker/types";
+import type { LatLng } from "../components/Marker/types";
 
 const PolygonTest = () => {
-  const [points, setPoints] = useState<LatLng[][]>([[]]);
+  const [points, setPoints] = useState<(LatLng | naver.maps.Coord)[][]>([[]]);
 
   return (
     <>
