@@ -1,6 +1,6 @@
 import { CSSProperties, HTMLAttributes, PropsWithChildren } from "react";
 import { OptionalRecord } from "../../@types/generic";
-import { NaverEventFunctionObject } from "../../@types/NaverEvent";
+import { MapEventFunctionType } from "../../@types/NaverEvent";
 
 /**
  * @description Marker를 정의하는 옵션.
@@ -23,5 +23,5 @@ export type MapProps = PropsWithChildren<
      * @description 지도 요소의 className입니다.
      */
     className?: HTMLAttributes<HTMLDivElement>["className"];
-  } & OptionalRecord<keyof NaverEventFunctionObject, (e: any) => any>
+  } & OptionalRecord<keyof MapEventFunctionType, (e: any) => any>
 >;

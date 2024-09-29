@@ -15,7 +15,7 @@ import { OptionalRecord } from "../@types/generic";
  */
 const useNaverEvent = (
   target: EventTargetType | undefined,
-  events: OptionalRecord<keyof NaverEventFunctionObject, (e: any) => any>
+  events: OptionalRecord<string, any>
 ) => {
   const listeners = useRef<naver.maps.MapEventListener[]>([]);
   const listenersOnce = useRef<naver.maps.MapEventListener[]>([]);
