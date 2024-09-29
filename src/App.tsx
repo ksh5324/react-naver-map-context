@@ -1,10 +1,10 @@
 import NaverMapProvider from "./components/NaverMapProvider";
-import MarkerTest from "./test/MarkerTest";
+import PolylineTest from "./test/PolylineTest";
 
 function App() {
   return (
     <NaverMapProvider client={process.env.REACT_APP_NAVER_API_KEY!}>
-      <MarkerTest />
+      <PolylineTest />
     </NaverMapProvider>
   );
 }

@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useState } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 import { useNaverMap } from "../../contexts/naverMapContext";
 import useMapEffect from "../../hooks/useMapEffect";
 import useNaverEvent from "../../hooks/useNaverEvent";
@@ -29,9 +29,12 @@ const Marker = forwardRef<naver.maps.Marker | undefined, MarkerProps>(
       if (!naverMap) {
         return;
       }
+      if (marker) {
+        marker?.setMap(null);
+      }
 
       const pos = convertToCoord(position);
-      
+
       const m = new naver.maps.Marker({
         map: naverMap,
         position: pos,
@@ -49,9 +52,21 @@ const Marker = forwardRef<naver.maps.Marker | undefined, MarkerProps>(
       setMarker(m);
 
       return () => {
-        marker?.setMap(null);
+        m.setMap(null);
       };
-    }, [naverMap]);
+    }, [
+      naverMap,
+      position,
+      animation,
+      clickable,
+      cursor,
+      draggable,
+      icon,
+      shape,
+      title,
+      visible,
+      zIndex,
+    ]);
 
     useImperativeHandle(
       ref,

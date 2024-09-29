@@ -176,8 +176,19 @@ type MarkerEvent =
   | EventType.VISABLE_CHANGED
   | EventType.ZINDEX_CHANGED;
 
+type PolylineEvent =
+  | EventType.CLICK
+  | EventType.DBL_CLICK
+  | EventType.CLICKABLE_CHANGED
+  | EventType.MOUSE_DOWN
+  | EventType.MOUSE_OUT
+  | EventType.MOUSE_UP
+  | EventType.VISABLE_CHANGED
+  | EventType.ZINDEX_CHANGED;
+
 export type MarkerEventFunctionType = RecordEventType<MarkerEvent>;
 export type MapEventFunctionType = RecordEventType<MapEventType>;
+export type PolylineEventFunctionType = RecordEventType<PolylineEvent>;
 
 export type EventTargetType =
   | naver.maps.Map
