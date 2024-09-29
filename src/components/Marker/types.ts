@@ -1,11 +1,14 @@
 import type { OptionalRecord } from "../../@types/generic";
-import type { MarkerEventFunctionType } from "../../@types/NaverEvent";
+import type {
+  EventProps,
+  MarkerEventFunctionType,
+} from "../../@types/NaverEvent";
 
 export type LatLng = { lat: number; lng: number };
 export type Point = { x: number; y: number };
 
 export type MarkerProps = MakerOptions &
-  OptionalRecord<keyof MarkerEventFunctionType, (e: any) => any>;
+  EventProps<MarkerEventFunctionType, naver.maps.Marker>;
 
 /** Marker를 정의하는 옵션. */
 type MakerOptions = {

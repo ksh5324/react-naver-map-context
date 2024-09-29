@@ -176,8 +176,19 @@ type MarkerEvent =
   | EventType.VISABLE_CHANGED
   | EventType.ZINDEX_CHANGED;
 
+type PolylineEvent =
+  | EventType.CLICK
+  | EventType.DBL_CLICK
+  | EventType.CLICKABLE_CHANGED
+  | EventType.MOUSE_DOWN
+  | EventType.MOUSE_OUT
+  | EventType.MOUSE_UP
+  | EventType.VISABLE_CHANGED
+  | EventType.ZINDEX_CHANGED;
+
 export type MarkerEventFunctionType = RecordEventType<MarkerEvent>;
 export type MapEventFunctionType = RecordEventType<MapEventType>;
+export type PolylineEventFunctionType = RecordEventType<PolylineEvent>;
 
 export type EventTargetType =
   | naver.maps.Map
@@ -192,3 +203,9 @@ export type EventFunctionType<T extends EventTargetType> =
   T extends naver.maps.Map ? NaverEventFunctionObject : never;
 
 export type NaverEventFunctionObject = RecordEventType<EventType>;
+export type EventProps<
+  T extends Record<string, unknown>,
+  U extends EventTargetType
+> = {
+  [t in keyof T]?: (e: T[t], target: U) => any;
+};

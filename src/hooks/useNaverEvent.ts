@@ -1,9 +1,6 @@
 import useMapEffect from "./useMapEffect";
 import { transformToNaverEventName } from "../utils/naverEventNameTransformer";
-import type {
-  EventTargetType,
-  NaverEventFunctionObject,
-} from "../@types/NaverEvent";
+import type { EventTargetType } from "../@types/NaverEvent";
 import { useRef } from "react";
 import { OptionalRecord } from "../@types/generic";
 
@@ -33,7 +30,7 @@ const useNaverEvent = (
         );
         if (!alreadyListener) {
           listenersOnce.current.push(
-            target.addListenerOnce(naverEventName, listener!)
+            target.addListenerOnce(naverEventName, (e) => listener(e, target)!)
           );
         }
       } else {
@@ -47,7 +44,9 @@ const useNaverEvent = (
           );
         }
 
-        listeners.current.push(target.addListener(naverEventName, listener!));
+        listeners.current.push(
+          target.addListener(naverEventName, (e) => listener(e, target)!)
+        );
       }
     });
 
