@@ -186,7 +186,19 @@ type PolylineEvent =
   | EventType.VISABLE_CHANGED
   | EventType.ZINDEX_CHANGED;
 
+type PolygonEvent =
+  | EventType.CLICK
+  | EventType.CLICKABLE_CHANGED
+  | EventType.DBL_CLICK
+  | EventType.MOUSE_DOWN
+  | EventType.MOUSE_OUT
+  | EventType.MOUSE_OVER
+  | EventType.MOUSE_UP
+  | EventType.VISABLE_CHANGED
+  | EventType.ZINDEX_CHANGED;
+
 export type MarkerEventFunctionType = RecordEventType<MarkerEvent>;
+export type PolygonEventFunctionType = RecordEventType<PolygonEvent>;
 export type MapEventFunctionType = RecordEventType<MapEventType>;
 export type PolylineEventFunctionType = RecordEventType<PolylineEvent>;
 
