@@ -2,17 +2,9 @@ import { forwardRef, useImperativeHandle, useState } from "react";
 import { useNaverMap } from "../../contexts/naverMapContext";
 import useMapEffect from "../../hooks/useMapEffect";
 import { convertToCoord } from "../../utils/convertToCoord";
-import type {
-  EventProps,
-  PolylineEventFunctionType,
-} from "../../@types/NaverEvent";
 import type { LatLng, Point } from "../Marker/types";
 import useNaverEvent from "../../hooks/useNaverEvent";
-
-type PolylineProps = {
-  path: (LatLng | naver.maps.LatLng)[] | (Point | naver.maps.Point)[];
-} & Omit<naver.maps.PolylineOptions, "path" | "map"> &
-  EventProps<PolylineEventFunctionType, naver.maps.Polyline>;
+import type { PolylineProps } from "./types";
 
 const Polyline = forwardRef<naver.maps.Polyline | undefined, PolylineProps>(
   function Polygon(
