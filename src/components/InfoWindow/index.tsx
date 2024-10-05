@@ -1,8 +1,8 @@
-import { PropsWithChildren, useState } from "react";
-import { renderToString } from "react-dom/server";
+import { Children, PropsWithChildren, useState } from "react";
 import { useNaverMap } from "../../contexts/naverMapContext";
 import useMapEffect from "../../hooks/useMapEffect";
 import { convertToCoord } from "../../utils/convertToCoord";
+import { ReactNodeToStaticHTMLElement } from "../../utils/ReactNodeToStaticHTMLElement";
 import { LatLng, Point } from "../Marker/types";
 
 const InfoWindow = ({
@@ -25,8 +25,13 @@ const InfoWindow = ({
 
     const pos = convertToCoord(position);
 
+    if (!Children.only(children)) {
+      console.error("children");
+      return;
+    }
+
     const info = new naver.maps.InfoWindow({
-      content: renderToString(children) || "",
+      content: ReactNodeToStaticHTMLElement(children) || "",
       position: pos,
     });
     info.open(naverMap);
