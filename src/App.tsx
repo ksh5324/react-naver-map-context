@@ -2,6 +2,7 @@ import NaverMapProvider from "./components/NaverMapProvider";
 import PolylineTest from "./test/PolylineTest";
 import MarkerTest from "./test/MarkerTest";
 import PolygonTest from "./test/PolygonTest";
+import CustomControlTest from "./test/CustomControlTest";
 import InfoWindowTest from "./test/InfoWindowTest";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       {/* <PolylineTest /> */}
       {/* <MarkerTest /> */}
       {/* <PolygonTest /> */}
-      <InfoWindowTest />
+      <CustomControlTest />
     </NaverMapProvider>
   );
 }
