@@ -10,6 +10,6 @@ export type CustomControlPosition =
   | "BOTTOM_RIGHT";
 
 export interface CustomControlProps {
+  children: React.ReactNode;
   position: CustomControlPosition;
 }
-
