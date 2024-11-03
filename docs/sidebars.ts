@@ -35,7 +35,13 @@ const sidebars: SidebarsConfig = {
         slug: "/category/sample",
         keywords: ["sample"],
       },
-      items: ["sample/marker"],
+      items: [
+        {
+          type: "category",
+          label: "지도",
+          items: ["sample/map/basicMap"],
+        },
+      ],
     },
   ],
   apiSidebar: [
