@@ -1,31 +1,14 @@
-import {
-  Children,
-  forwardRef,
-  PropsWithChildren,
-  useImperativeHandle,
-  useState,
-} from "react";
-import {
-  EventProps,
-  InfoWindowEventFunctionType,
-} from "../../@types/NaverEvent";
+import { Children, forwardRef, useImperativeHandle, useState } from "react";
 import { useNaverMap } from "../../contexts/naverMapContext";
 import useMapEffect from "../../hooks/useMapEffect";
 import useNaverEvent from "../../hooks/useNaverEvent";
 import { convertToCoord } from "../../utils/convertToCoord";
 import { ReactNodeToStaticHTMLElement } from "../../utils/ReactNodeToStaticHTMLElement";
-import { LatLng, Point } from "../Marker/types";
-
-type infoWindowProps = PropsWithChildren<
-  Omit<naver.maps.InfoWindowOptions, "content" | "position"> & {
-    position: LatLng | Point | naver.maps.Coord;
-  }
-> &
-  EventProps<InfoWindowEventFunctionType, naver.maps.InfoWindow>;
+import { InfoWindowProps } from "./types";
 
 const InfoWindow = forwardRef<
   naver.maps.InfoWindow | undefined,
-  infoWindowProps
+  InfoWindowProps
 >(function InfoWindow(
   {
     children,
