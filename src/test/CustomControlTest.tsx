@@ -1,16 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Map from "../components/Map";
 import CustomControl from "../components/CustomControl";
 
 const CustomControlTest = () => {
-  const ref = useRef<naver.maps.CustomControl>();
+  const clickEvent = () => {
+    console.log("click");
+  };
+  const clickEvent2 = () => {
+    console.log("click2");
+  };
   return (
     <>
       <Map mapId="123">
-        <CustomControl position="TOP_LEFT" >
-          <button className="btn_mylct">
-            <span className="spr_trff spr_ico_mylct">NAVER 그린팩토리</span>
-          </button>
+        <CustomControl position="TOP_LEFT">
+          <div className="btn_mylct">
+            <button className="spr_trff spr_ico_mylct" onClick={clickEvent}>
+              NAVER 그린팩토리
+            </button>
+            <button className="spr_trff spr_ico_mylct" onClick={clickEvent2}>
+              NAVER 그린팩토리2
+            </button>
+          </div>
         </CustomControl>
       </Map>
     </>

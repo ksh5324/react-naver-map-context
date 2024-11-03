@@ -47,6 +47,19 @@ const enum EventType {
   ZOOM_CHANGED = "zoom_changed",
   ZOOM_END = "zoomend",
   ZOOM_START = "zoomstart",
+  ANCHORCOLOR_CHANGED = "anchorColor_changed",
+  ANCHORSIZE_CHANGED = "anchorSize_changed",
+  ANCHORSKEW_CHANGED = "anchorSkew_changed",
+  BACKGROUNDCOLOR_CHANGED = "backgroundColor_changed",
+  BORDERCOLOR_CHANGED = "borderColor_changed",
+  BORDERWIDTH_CHANGED = "borderWidth_changed",
+  CLOSE = "close",
+  CONTENT_CHANGED = "content_changed",
+  DISABLEANCHOR_CHANGED = "disableAnchor_changed",
+  DISABLEAUTOPAN_CHANGED = "disableAutoPan_changed",
+  MAXWIDTH_CHANGED = "maxWidth_changed",
+  OPEN = "open",
+  PIXELOFFSET_CHANGED = "pixelOffset_changed",
 }
 type EventParamType = {
   [EventType.ADD_LAYER]: naver.maps.Layer;
@@ -101,6 +114,19 @@ type EventParamType = {
   [EventType.ZOOM_CHANGED]: number;
   [EventType.ZOOM_END]: never;
   [EventType.ZOOM_START]: never;
+  [EventType.ANCHORCOLOR_CHANGED]: string;
+  [EventType.ANCHORSIZE_CHANGED]: naver.maps.Size;
+  [EventType.ANCHORSKEW_CHANGED]: boolean;
+  [EventType.BACKGROUNDCOLOR_CHANGED]: string;
+  [EventType.BORDERCOLOR_CHANGED]: string;
+  [EventType.BORDERWIDTH_CHANGED]: number;
+  [EventType.CLOSE]: naver.maps.PointerEvent;
+  [EventType.CONTENT_CHANGED]: HTMLElement;
+  [EventType.DISABLEANCHOR_CHANGED]: boolean;
+  [EventType.DISABLEAUTOPAN_CHANGED]: boolean;
+  [EventType.MAXWIDTH_CHANGED]: number;
+  [EventType.OPEN]: naver.maps.PointerEvent;
+  [EventType.PIXELOFFSET_CHANGED]: naver.maps.Point;
 };
 type OnEventListener<T extends string> = T extends `${infer R}${infer Rest}`
   ?
@@ -197,10 +223,28 @@ type PolygonEvent =
   | EventType.VISABLE_CHANGED
   | EventType.ZINDEX_CHANGED;
 
+type InfoWindowEvent =
+  | EventType.ANCHORCOLOR_CHANGED
+  | EventType.ANCHORSIZE_CHANGED
+  | EventType.ANCHORSKEW_CHANGED
+  | EventType.BACKGROUNDCOLOR_CHANGED
+  | EventType.BORDERCOLOR_CHANGED
+  | EventType.BORDERWIDTH_CHANGED
+  | EventType.CLOSE
+  | EventType.CONTENT_CHANGED
+  | EventType.DISABLEANCHOR_CHANGED
+  | EventType.DISABLEAUTOPAN_CHANGED
+  | EventType.MAXWIDTH_CHANGED
+  | EventType.OPEN
+  | EventType.PIXELOFFSET_CHANGED
+  | EventType.POSITION_CHANGED
+  | EventType.ZINDEX_CHANGED;
+
 export type MarkerEventFunctionType = RecordEventType<MarkerEvent>;
 export type PolygonEventFunctionType = RecordEventType<PolygonEvent>;
 export type MapEventFunctionType = RecordEventType<MapEventType>;
 export type PolylineEventFunctionType = RecordEventType<PolylineEvent>;
+export type InfoWindowEventFunctionType = RecordEventType<InfoWindowEvent>;
 
 export type EventTargetType =
   | naver.maps.Map

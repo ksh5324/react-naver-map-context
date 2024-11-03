@@ -3,6 +3,7 @@ import PolylineTest from "./test/PolylineTest";
 import MarkerTest from "./test/MarkerTest";
 import PolygonTest from "./test/PolygonTest";
 import CustomControlTest from "./test/CustomControlTest";
+import InfoWindowTest from "./test/InfoWindowTest";
 
 function App() {
   return (
