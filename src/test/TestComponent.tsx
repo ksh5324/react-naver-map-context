@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useRef } from "react";
+import React, { MouseEventHandler } from "react";
 
 const TestComponent = ({
   classname,
@@ -10,7 +10,7 @@ const TestComponent = ({
   return (
     <>
       <div className={classname}>
-        <div onClick={onClick}></div>
+        <div onClick={onClick}>3</div>
         <span>
           <div></div>
           <p>

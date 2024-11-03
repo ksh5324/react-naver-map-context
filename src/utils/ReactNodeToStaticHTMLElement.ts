@@ -1,8 +1,5 @@
 import { ReactNode } from "react";
 
-const attribute = ["className"];
-const event = ["onClick"];
-
 export const ReactNodeToStaticHTMLElement = (children: ReactNode) => {
   const visited: any[] = [];
   const stack: { parent: any; node: any }[] = [
@@ -25,6 +22,15 @@ export const ReactNodeToStaticHTMLElement = (children: ReactNode) => {
         const elementType =
           node.type === Symbol.for("react.fragment") ? "div" : node.type;
         const el = document.createElement(elementType);
+        const keys = Object.keys(props);
+        keys.forEach((key) => {
+          if (key === "children") return;
+          if (key.startsWith("on")) {
+            el[key.toLocaleLowerCase()] = props[key];
+          } else {
+            el[key] = props[key];
+          }
+        });
         if (nodeRoot === null) {
           nodeRoot = el;
         } else {
@@ -47,6 +53,5 @@ export const ReactNodeToStaticHTMLElement = (children: ReactNode) => {
     }
   }
 
-  console.log(nodeRoot);
   return nodeRoot;
 };
