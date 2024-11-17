@@ -4,6 +4,7 @@ import MarkerTest from "./test/MarkerTest";
 import PolygonTest from "./test/PolygonTest";
 import CustomControlTest from "./test/CustomControlTest";
 import InfoWindowTest from "./test/InfoWindowTest";
+import CircleTest from "./test/CircleTest";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <PolylineTest /> */}
       {/* <MarkerTest /> */}
       {/* <PolygonTest /> */}
-      <CustomControlTest />
+      {/* <CustomControlTest /> */}
+      <CircleTest />
     </NaverMapProvider>
   );
 }
