@@ -60,6 +60,8 @@ const enum EventType {
   MAXWIDTH_CHANGED = "maxWidth_changed",
   OPEN = "open",
   PIXELOFFSET_CHANGED = "pixelOffset_changed",
+  RADIUS_CHANGED = "radius_changed",
+  VISIBLE_CHANGED = "visible_changed",
 }
 type EventParamType = {
   [EventType.ADD_LAYER]: naver.maps.Layer;
@@ -127,6 +129,8 @@ type EventParamType = {
   [EventType.MAXWIDTH_CHANGED]: number;
   [EventType.OPEN]: naver.maps.PointerEvent;
   [EventType.PIXELOFFSET_CHANGED]: naver.maps.Point;
+  [EventType.RADIUS_CHANGED]: number;
+  [EventType.VISIBLE_CHANGED]: boolean;
 };
 type OnEventListener<T extends string> = T extends `${infer R}${infer Rest}`
   ?
@@ -240,11 +244,25 @@ type InfoWindowEvent =
   | EventType.POSITION_CHANGED
   | EventType.ZINDEX_CHANGED;
 
+type CircleEvent =
+  | EventType.CENTER_CHANGED
+  | EventType.CLICK
+  | EventType.CLICKABLE_CHANGED
+  | EventType.DBL_CLICK
+  | EventType.MOUSE_DOWN
+  | EventType.MOUSE_OUT
+  | EventType.MOUSE_OVER
+  | EventType.MOUSE_UP
+  | EventType.RADIUS_CHANGED
+  | EventType.VISIBLE_CHANGED
+  | EventType.ZINDEX_CHANGED;
+
 export type MarkerEventFunctionType = RecordEventType<MarkerEvent>;
 export type PolygonEventFunctionType = RecordEventType<PolygonEvent>;
 export type MapEventFunctionType = RecordEventType<MapEventType>;
 export type PolylineEventFunctionType = RecordEventType<PolylineEvent>;
 export type InfoWindowEventFunctionType = RecordEventType<InfoWindowEvent>;
+export type CircleEventFunctionType = RecordEventType<CircleEvent>;
 
 export type EventTargetType =
   | naver.maps.Map
