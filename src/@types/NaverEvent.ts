@@ -257,12 +257,25 @@ type CircleEvent =
   | EventType.VISIBLE_CHANGED
   | EventType.ZINDEX_CHANGED;
 
+type RectangleEvent =
+  | EventType.BOUNDS_CHANGED
+  | EventType.CLICK
+  | EventType.CLICKABLE_CHANGED
+  | EventType.DBL_CLICK
+  | EventType.MOUSE_DOWN
+  | EventType.MOUSE_OUT
+  | EventType.MOUSE_OVER
+  | EventType.MOUSE_UP
+  | EventType.VISABLE_CHANGED
+  | EventType.ZINDEX_CHANGED;
+
 export type MarkerEventFunctionType = RecordEventType<MarkerEvent>;
 export type PolygonEventFunctionType = RecordEventType<PolygonEvent>;
 export type MapEventFunctionType = RecordEventType<MapEventType>;
 export type PolylineEventFunctionType = RecordEventType<PolylineEvent>;
 export type InfoWindowEventFunctionType = RecordEventType<InfoWindowEvent>;
 export type CircleEventFunctionType = RecordEventType<CircleEvent>;
+export type RectangleEventFunctionType = RecordEventType<RectangleEvent>;
 
 export type EventTargetType =
   | naver.maps.Map

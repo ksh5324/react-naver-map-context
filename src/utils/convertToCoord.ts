@@ -1,5 +1,5 @@
 import type { LatLng, Point } from "../components/Marker/types";
-import { isLatLng } from "./isLatLng";
+import { isLatLng } from "./locationTypeGuards";
 
 export function convertToCoord(
   position: LatLng | Point
