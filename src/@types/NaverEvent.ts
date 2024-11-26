@@ -269,6 +269,18 @@ type RectangleEvent =
   | EventType.VISABLE_CHANGED
   | EventType.ZINDEX_CHANGED;
 
+type EllipseEvent =
+  | EventType.BOUNDS_CHANGED
+  | EventType.CLICK
+  | EventType.CLICKABLE_CHANGED
+  | EventType.DBL_CLICK
+  | EventType.MOUSE_DOWN
+  | EventType.MOUSE_OUT
+  | EventType.MOUSE_OVER
+  | EventType.MOUSE_UP
+  | EventType.VISIBLE_CHANGED
+  | EventType.ZINDEX_CHANGED;
+
 export type MarkerEventFunctionType = RecordEventType<MarkerEvent>;
 export type PolygonEventFunctionType = RecordEventType<PolygonEvent>;
 export type MapEventFunctionType = RecordEventType<MapEventType>;
@@ -276,6 +288,7 @@ export type PolylineEventFunctionType = RecordEventType<PolylineEvent>;
 export type InfoWindowEventFunctionType = RecordEventType<InfoWindowEvent>;
 export type CircleEventFunctionType = RecordEventType<CircleEvent>;
 export type RectangleEventFunctionType = RecordEventType<RectangleEvent>;
+export type EllipseEventFunctionType = RecordEventType<EllipseEvent>;
 
 export type EventTargetType =
   | naver.maps.Map
@@ -284,7 +297,8 @@ export type EventTargetType =
   | naver.maps.Polygon
   | naver.maps.Polyline
   | naver.maps.Rectangle
-  | naver.maps.Circle;
+  | naver.maps.Circle
+  | naver.maps.Ellipse;
 
 export type EventFunctionType<T extends EventTargetType> =
   T extends naver.maps.Map ? NaverEventFunctionObject : never;
@@ -292,7 +306,7 @@ export type EventFunctionType<T extends EventTargetType> =
 export type NaverEventFunctionObject = RecordEventType<EventType>;
 export type EventProps<
   T extends Record<string, unknown>,
-  U extends EventTargetType
+  U extends EventTargetType,
 > = {
   [t in keyof T]?: (e: T[t], target: U) => any;
 };
