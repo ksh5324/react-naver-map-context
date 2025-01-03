@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import Map from "../components/Map";
-import Rectangle from "../components/Rectangle";
+import {Map} from "@atlas/naver-react-map";
+import {Rectangle} from "@atlas/naver-react-map";
 
 const RectangleTest = () => {
   const ref = useRef<naver.maps.Rectangle>();

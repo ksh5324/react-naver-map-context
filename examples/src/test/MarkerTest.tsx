@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import Map from "../components/Map";
-import Marker from "../components/Marker";
+import {Map} from "@atlas/naver-react-map";
+import {Marker} from "@atlas/naver-react-map";
 
 const MarkerTest = () => {
   const ref = useRef<naver.maps.Marker>();
