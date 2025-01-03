@@ -3,7 +3,7 @@ export { default as NaverMapProvider } from './components/NaverMapProvider';
 export { default as Map } from './components/Map';
 
 // Overlay components
-export * from './components/Marker';
+export { default as Marker } from './components/Marker';
 export { default as InfoWindow } from './components/InfoWindow';
 export { default as Polyline } from './components/Polyline';
 export { default as Polygon } from './components/Polygon';
