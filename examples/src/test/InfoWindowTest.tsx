@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {Map} from "@atlas/naver-react-map";
-import {InfoWindow} from "@atlas/naver-react-map";
+import {Map} from "react-naver-map-sdk";
+import {InfoWindow} from "react-naver-map-sdk";
 import TestComponent from "./TestComponent";
 
 const InfoWindowTest = () => {

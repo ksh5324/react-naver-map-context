@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import {Map} from "@atlas/naver-react-map";
-import {Circle} from "@atlas/naver-react-map";
+import {Map} from "react-naver-map-sdk";
+import {Circle} from "react-naver-map-sdk";
 
 const CircleTest = () => {
   const ref = useRef<naver.maps.Circle>();

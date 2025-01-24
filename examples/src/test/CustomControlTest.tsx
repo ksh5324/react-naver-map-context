@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import {Map} from "@atlas/naver-react-map";
-import {CustomControl} from "@atlas/naver-react-map";
+import {Map} from "react-naver-map-sdk";
+import {CustomControl} from "react-naver-map-sdk";
 
 const CustomControlTest = () => {
   const ref = useRef<naver.maps.CustomControl>();

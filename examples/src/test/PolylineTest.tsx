@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import {Map} from "@atlas/naver-react-map";
-import {Marker} from "@atlas/naver-react-map";
-import {Polyline} from "@atlas/naver-react-map";
+import {Map} from "react-naver-map-sdk";
+import {Marker} from "react-naver-map-sdk";
+import {Polyline} from "react-naver-map-sdk";
 
 const PolylineTest = () => {
   const mapRef = useRef<naver.maps.Map>();

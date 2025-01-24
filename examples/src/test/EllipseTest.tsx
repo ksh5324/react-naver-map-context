@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import {Map} from "@atlas/naver-react-map";
-import {Ellipse} from "@atlas/naver-react-map";
+import {Map} from "react-naver-map-sdk";
+import {Ellipse} from "react-naver-map-sdk";
 
 const EllipseTest = () => {
   const ref = useRef<naver.maps.Ellipse>();

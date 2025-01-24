@@ -1,4 +1,4 @@
-import {NaverMapProvider} from "@atlas/naver-react-map";
+import {NaverMapProvider} from "react-naver-map-sdk";
 import PolylineTest from "./test/PolylineTest";
 import MarkerTest from "./test/MarkerTest";
 import PolygonTest from "./test/PolygonTest";

@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import {Map} from "@atlas/naver-react-map";
-import {Polygon} from "@atlas/naver-react-map";
-import {Marker} from "@atlas/naver-react-map";
-// import type { LatLng } from "@atlas/naver-react-map";
+import {Map} from "react-naver-map-sdk";
+import {Polygon} from "react-naver-map-sdk";
+import {Marker} from "react-naver-map-sdk";
+// import type { LatLng } from "react-naver-map-sdk";
 
 const PolygonTest = () => {
   const [points, setPoints] = useState<(naver.maps.Coord)[][]>([[]]);
