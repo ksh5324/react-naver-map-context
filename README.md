@@ -1,46 +1,108 @@
-# Getting Started with Create React App
+<div align="center">
+  <h1>react-naver-map-sdk</h1>
+  <p>React library for <a href="https://navermaps.github.io/maps.js.ncp/docs/index.html" alt="naver maps api">Naver Maps API</a></p>
+  <p>
+    <a href="https://www.npmjs.com/package/react-naver-map-sdk"><img alt="version" src="https://img.shields.io/npm/v/react-naver-map-sdk" /></a>
+    <a href="https://www.npmjs.com/package/react-naver-map-sdk"><img alt="npm dm" src="https://img.shields.io/npm/dm/react-naver-map-sdk" /></a>
+    <img alt="license" src="https://img.shields.io/npm/l/react-naver-map-sdk" />
+  </p>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Core Concepts
 
-## Available Scripts
+- Declarative and intuitive component-based API
+- Automatic script loading - NaverMapProvider loads the Naver Maps API when needed
+- Full TypeScript support with type safety
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+```bash
+npm install react-naver-map-sdk
+# or
+yarn add react-naver-map-sdk
+# or
+pnpm add react-naver-map-sdk
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The library provides a simple way to integrate Naver Maps into your React application. Wrap your app with `NaverMapProvider` and use the map components as needed.
 
-### `npm test`
+```jsx
+import { NaverMapProvider, Map, Marker } from 'react-naver-map-sdk';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function App() {
+  return (
+    <NaverMapProvider clientId="YOUR_CLIENT_ID">
+      <Map mapId="123">
+        <Marker position={{ lat: 37.3595704, lng: 127.105399 }}/>
+      </Map>
+    </NaverMapProvider>
+  );
+}
+```
 
-### `npm run build`
+All components must be used within the `NaverMapProvider` context. The provider handles the Naver Maps script loading and context initialization.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Documentation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+For detailed usage and examples, please refer to our [official documentation](https://docsurl.com).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Examples
 
-### `npm run eject`
+- [Basic Map](examples/basic-map)
+- [Using Markers](examples/markers)
+- [Handling Events](examples/events)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you find a bug or have a feature request, please follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Create a new issue
+2. Create a new branch for your issue (`git checkout -b feature/issue-number`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'feat: brief description'`)
+5. Push the branch (`git push origin feature/issue-number`)
+6. Create a Pull Request
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Local Development
 
-## Learn More
+Local development is broken into two parts (ideally using two tabs).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### 1. Library Development Server
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+First, run rollup to watch your `src/` module and automatically recompile it into `dist/` whenever you make changes:
+
+```bash
+npm start # runs rollup with watch flag
+```
+
+#### 2. Example App Development Server
+
+Second, run the example app in `examples/` directory that's linked to the local version of your module:
+
+```bash
+# in another tab
+cd examples
+npm start # runs create-react-app dev server
+```
+
+Now, anytime you make a change to your library in `src/` or to the example app's `examples/src`, it will live-reload your local dev server.
+
+#### Manual Link Installation
+
+If you get the error `Module not found: Can't resolve 'react-naver-map-sdk'` while trying to run the example app, you need to manually link your local development module:
+
+1. In the root folder:
+```bash
+npm link
+```
+
+2. Go into `examples/` and (after installing other dependencies):
+```bash
+npm link react-naver-map-sdk
+```
+
+## License
+
+MIT © Seohyeon Kim, Seonghun Kang
