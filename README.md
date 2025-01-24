@@ -1,7 +1,5 @@
-A React library for Naver Maps with Context API integration.
-
 <div align="center">
-  <h1>react-naver-map-context</h1>
+  <h1>react-naver-map-sdk</h1>
   <p>React library for <a href="https://navermaps.github.io/maps.js.ncp/docs/index.html" alt="naver maps api">Naver Maps API</a></p>
   <p>
     <a href="https://www.npmjs.com/package/react-naver-map-sdk"><img alt="version" src="https://img.shields.io/npm/v/react-naver-map-sdk" /></a>
@@ -19,11 +17,11 @@ A React library for Naver Maps with Context API integration.
 ## Installation
 
 ```bash
-npm install react-naver-map-context
+npm install react-naver-map-sdk
 # or
-yarn add react-naver-map-context
+yarn add react-naver-map-sdk
 # or
-pnpm add react-naver-map-context
+pnpm add react-naver-map-sdk
 ```
 
 ## Usage
@@ -31,7 +29,7 @@ pnpm add react-naver-map-context
 The library provides a simple way to integrate Naver Maps into your React application. Wrap your app with `NaverMapProvider` and use the map components as needed.
 
 ```jsx
-import { NaverMapProvider, Map, Marker } from 'react-naver-map-context';
+import { NaverMapProvider, Map, Marker } from 'react-naver-map-sdk';
 
 function App() {
   return (
@@ -93,7 +91,7 @@ Now, anytime you make a change to your library in `src/` or to the example app's
 
 #### Manual Link Installation
 
-If you get the error `Module not found: Can't resolve 'react-naver-map-context'` while trying to run the example app, you need to manually link your local development module:
+If you get the error `Module not found: Can't resolve 'react-naver-map-sdk'` while trying to run the example app, you need to manually link your local development module:
 
 1. In the root folder:
 ```bash
@@ -102,7 +100,7 @@ npm link
 
 2. Go into `examples/` and (after installing other dependencies):
 ```bash
-npm link react-naver-map-context
+npm link react-naver-map-sdk
 ```
 
 ## License
