@@ -96,6 +96,9 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    customFields: {
+      REACT_APP_NAVER_API_KEY: process.env.REACT_APP_NAVER_API_KEY,
+    },
   } satisfies Preset.ThemeConfig,
 };
 

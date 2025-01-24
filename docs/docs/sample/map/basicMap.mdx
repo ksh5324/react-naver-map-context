@@ -8,7 +8,20 @@ sidebar_position: 1
 
 > original docs : https://navermaps.github.io/maps.js.ncp/docs/tutorial-1-map-simple.example.html
 
-```tsx
+<LiveEditor>
+  {`
+export default function App() {
+  return (
+    <div className="App">
+      <h1>Hello world ✨</h1>
+      <p>Start editing to see some magic happen!</p>
+    </div>
+  );
+}
+`}
+</LiveEditor>
+
+<!-- ```tsx
 export default function BasicMap() {
   return (
     <NaverMapProvider client={process.env.REACT_APP_NAVER_API_KEY!}>
@@ -16,5 +29,4 @@ export default function BasicMap() {
         <Map mapId="map">
     </NaverMapProvider>
   );
-}
-```
+} -->
