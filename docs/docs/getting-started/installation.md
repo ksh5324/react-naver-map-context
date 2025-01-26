@@ -4,12 +4,12 @@ sidebar_position: 1
 
 # 설치
 
-React NAVER Maps는 npm, yarn, pnpm과 같은 패키지 매니저를 통해 쉽게 설치할 수 있습니다.
+react-naver-map-sdk는 npm, yarn, pnpm과 같은 패키지 매니저를 통해 쉽게 설치할 수 있습니다.
 
 ## 패키지 설치
 
 :::tip
-다음 명령어 중 하나를 사용하여 React NAVER Maps를 설치할 수 있습니다:
+다음 명령어 중 하나를 사용하여 react-naver-map-sdk를 설치할 수 있습니다:
 :::
 
 ```bash
@@ -23,7 +23,7 @@ pnpm add react-naver-map-context
 ## 기본 사용 예제
 
 :::info
-아래는 React NAVER Maps를 사용한 간단한 예제입니다:
+아래는 react-naver-map-sdk를 사용한 간단한 예제입니다:
 :::
 
 ```jsx
@@ -55,5 +55,5 @@ function SimpleMap() {
 ## 다음 단계
 
 :::note
-이제 React NAVER Maps가 설치되었고 기본적인 사용법을 알아보았습니다. 더 자세한 사용법과 고급 기능은 [예제](../sample/)를 참조하세요.
+이제 react-naver-map-sdk가 설치되었고 기본적인 사용법을 알아보았습니다. 더 자세한 사용법과 고급 기능은 [예제](../sample/)를 참조하세요.
 :::

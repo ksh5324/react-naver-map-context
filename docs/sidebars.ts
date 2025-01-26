@@ -23,11 +23,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "가이드",
-      items: ["guides/marker"],
-    },
-    {
-      type: "category",
       label: "예제",
       link: {
         type: "generated-index",
@@ -35,14 +30,26 @@ const sidebars: SidebarsConfig = {
         slug: "/category/sample",
         keywords: ["sample"],
       },
-      items: ["sample/marker"],
+      items: [
+        {
+          type: "category",
+          label: "지도",
+          items: ["sample/map/basicMap"],
+        },
+      ],
     },
   ],
   apiSidebar: [
     {
       type: "category",
       label: "API",
-      items: ["api/marker"],
+      items: [
+        {
+          type: "category",
+          label: "Classes",
+          items: ["api/classes/marker"],
+        },
+      ],
     },
   ],
 };
