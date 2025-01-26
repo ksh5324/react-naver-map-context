@@ -4,12 +4,12 @@ sidebar_position: 2
 
 # TypeScript 지원
 
-React NAVER Maps는 TypeScript를 완벽하게 지원합니다. 이를 통해 개발자는 타입 안정성을 확보하고 더 나은 개발 경험을 얻을 수 있습니다.
+react-naver-map-sdk는 TypeScript를 완벽하게 지원합니다. 이를 통해 개발자는 타입 안정성을 확보하고 더 나은 개발 경험을 얻을 수 있습니다.
 
 ## TypeScript 설정
 
 :::info
-React NAVER Maps를 TypeScript 프로젝트에서 사용하기 위해서는 추가적인 타입 정의가 필요합니다.
+react-naver-map-sdk를 TypeScript 프로젝트에서 사용하기 위해서는 추가적인 타입 정의가 필요합니다.
 :::
 
 다음 명령어를 사용하여 NAVER Maps API의 타입 정의를 설치할 수 있습니다:
@@ -22,7 +22,7 @@ yarn add --dev @types/navermaps
 pnpm add --save-dev @types/navermaps
 ```
 
-이 패키지를 설치하면 별도의 추가 설정 없이 TypeScript와 함께 React NAVER Maps를 사용할 수 있습니다.
+이 패키지를 설치하면 별도의 추가 설정 없이 TypeScript와 함께 react-naver-map-sdk를 사용할 수 있습니다.
 
 ## 타입 사용 예제
 
@@ -70,7 +70,7 @@ export default MapComponent;
 
 </details>
 
-React NAVER Maps의 모든 컴포넌트와 함수는 타입이 정의되어 있어, TypeScript 프로젝트에서 원활하게 사용할 수 있습니다.
+react-naver-map-sdk의 모든 컴포넌트와 함수는 타입이 정의되어 있어, TypeScript 프로젝트에서 원활하게 사용할 수 있습니다.
 
 ## 추가 팁
 
@@ -81,4 +81,4 @@ React NAVER Maps의 모든 컴포넌트와 함수는 타입이 정의되어 있�
 타입 오류가 발생하면 먼저 `@types/navermaps` 패키지가 최신 버전인지 확인하세요.
 :::
 
-TypeScript를 사용하면 React NAVER Maps를 더욱 안전하고 효율적으로 사용할 수 있습니다. 타입 시스템의 이점을 최대한 활용하여 높은 품질의 코드를 작성해보세요.
+TypeScript를 사용하면 react-naver-map-sdk를 더욱 안전하고 효율적으로 사용할 수 있습니다. 타입 시스템의 이점을 최대한 활용하여 높은 품질의 코드를 작성해보세요.

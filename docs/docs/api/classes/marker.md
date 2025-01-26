@@ -25,15 +25,15 @@ sidebar_position: 2
 
 | Prop        | 타입                                                                             | 설명                                              |
 | ----------- | -------------------------------------------------------------------------------- | ------------------------------------------------- |
+| `animation` | `naver.maps.Animation`                                                           | 마커가 지도에 추가될 때 시작할 애니메이션입니다.  |
+| `clickable` | `boolean`                                                                        | 마커의 클릭 허용 여부를 설정합니다.               |
+| `cursor`    | `string`                                                                         | 마커에 마우스 오버 시 나타나는 포인터 모양입니다. |
+| `draggable` | `boolean`                                                                        | 마커의 드래그 허용 여부를 설정합니다.             |
+| `icon`      | `string \| naver.maps.ImageIcon \| naver.maps.SymbolIcon \| naver.maps.HtmlIcon` | 마커의 모양을 정의합니다.                         |
 | `shape`     | `naver.maps.MarkerShape`                                                         | 마커의 인터랙션 영역을 정의합니다.                |
 | `title`     | `string`                                                                         | 마커에 마우스 오버 시 나타나는 툴팁 문자열입니다. |
-| `cursor`    | `string`                                                                         | 마커에 마우스 오버 시 나타나는 포인터 모양입니다. |
-| `clickable` | `boolean`                                                                        | 마커의 클릭 허용 여부를 설정합니다.               |
-| `draggable` | `boolean`                                                                        | 마커의 드래그 허용 여부를 설정합니다.             |
 | `visible`   | `boolean`                                                                        | 마커의 노출 허용 여부를 설정합니다.               |
 | `zIndex`    | `number`                                                                         | 마커의 쌓임 순서를 설정합니다.                    |
-| `animation` | `naver.maps.Animation`                                                           | 마커가 지도에 추가될 때 시작할 애니메이션입니다.  |
-| `icon`      | `string \| naver.maps.ImageIcon \| naver.maps.SymbolIcon \| naver.maps.HtmlIcon` | 마커의 모양을 정의합니다.                         |
 
 </details>
 
@@ -50,14 +50,21 @@ sidebar_position: 2
 
 | 이벤트 Prop    | 설명                                                 |
 | -------------- | ---------------------------------------------------- |
-| `onClick`      | 마커를 클릭했을 때 발생하는 이벤트입니다.            |
-| `onDblClick`   | 마커를 더블 클릭했을 때 발생하는 이벤트입니다.       |
-| `onRightClick` | 마커를 우클릭했을 때 발생하는 이벤트입니다.          |
-| `onMouseOver`  | 마커에 마우스를 올렸을 때 발생하는 이벤트입니다.     |
-| `onMouseOut`   | 마커에서 마우스가 벗어났을 때 발생하는 이벤트입니다. |
-| `onDragStart`  | 마커의 드래그가 시작될 때 발생하는 이벤트입니다.     |
-| `onDrag`       | 마커를 드래그 중일 때 발생하는 이벤트입니다.         |
-| `onDragEnd`    | 마커의 드래그가 끝났을 때 발생하는 이벤트입니다.     |
+| `onClick`      | 마커를 클릭했을 때 발생하는 이벤트입니다.           |
+| `onClickableChanged` | 마커의 클릭 가능 여부가 변경되었을 때 발생하는 이벤트입니다. |
+| `onDblclick`   | 마커를 더블 클릭했을 때 발생하는 이벤트입니다.      |
+| `onDraggableChanged` | 마커의 드래그 가능 여부가 변경되었을 때 발생하는 이벤트입니다. |
+| `onIconChanged` | 마커의 아이콘이 변경되었을 때 발생하는 이벤트입니다. |
+| `onIcon_loaded` | 마커의 아이콘 이미지 로딩이 완료되었을 때 발생하는 이벤트입니다. |
+| `onMousedown`  | 마커에서 마우스 버튼을 눌렀을 때 발생하는 이벤트입니다. |
+| `onMouseup`    | 마커에서 마우스 버튼을 놓았을 때 발생하는 이벤트입니다. |
+| `onPositionChanged` | 마커의 위치가 변경되었을 때 발생하는 이벤트입니다. |
+| `onRightclick` | 마커를 우클릭했을 때 발생하는 이벤트입니다.         |
+| `onTitleChanged` | 마커의 타이틀이 변경되었을 때 발생하는 이벤트입니다. |
+| `onTouchend`   | 마커에서 터치가 끝났을 때 발생하는 이벤트입니다.    |
+| `onTouchstart` | 마커를 터치했을 때 발생하는 이벤트입니다.           |
+| `onVisibleChanged` | 마커의 가시성이 변경되었을 때 발생하는 이벤트입니다. |
+| `onZIndexChanged` | 마커의 z-index가 변경되었을 때 발생하는 이벤트입니다. |
 
 </details>
 
@@ -76,6 +83,6 @@ sidebar_position: 2
   :::
 
 - `position` prop은 `LatLng`, `Point`, 또는 `naver.maps.Coord` 타입을 받을 수 있습니다. 내부적으로 적절한 타입으로 변환됩니다.
-- 마커의 스타일이나 동작을 변경하려면, 해당하는 prop을 업데이트 하면 됩니다. React NAVER Maps는 내부적으로 변경사항을 감지하고 마커를 업데이트합니다.
+- 마커의 스타일이나 동작을 변경하려면, 해당하는 prop을 업데이트 하면 됩니다. react-naver-map-sdk는 내부적으로 변경사항을 감지하고 마커를 업데이트합니다.
 
 더 자세한 정보는 [NAVER Maps API v3 공식 문서](https://navermaps.github.io/maps.js.ncp/docs/naver.maps.Marker.html)를 참조하세요.

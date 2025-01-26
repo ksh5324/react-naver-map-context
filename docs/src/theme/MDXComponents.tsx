@@ -11,7 +11,7 @@ const LiveEditor = ({
   files: SandpackFiles;
 }) => {
   const {
-    siteConfig: { customFields },
+    siteConfig: { customFields, title },
   } = useDocusaurusContext();
   if (!files) files = {};
 
@@ -21,6 +21,7 @@ const LiveEditor = ({
       template="react-ts"
       customSetup={{
         dependencies: {
+          "react-naver-map-sdk": "latest",
         },
       }}
       files={{
@@ -28,6 +29,20 @@ const LiveEditor = ({
         "/App.tsx": {
           code: children,
         },
+        "/NaverMapLoadProvider.tsx": {
+          code: `
+import React from "react";
+import {NaverMapProvider} from "react-naver-map-sdk";
+          
+export default function NaverMapLoadProvider({children}: {children: React.ReactNode}) {
+  return (
+    <NaverMapProvider client={"${customFields.REACT_APP_NAVER_API_KEY}"}>
+      {children}
+    </NaverMapProvider>
+    );
+  }
+`,
+},
       }}
       options={{
         showLineNumbers: true,

@@ -1,10 +1,11 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import 'dotenv/config';
 
 const config: Config = {
-  title: "React-Naver-Map",
-  tagline: "네이버 지도를 React에서 쉽게 사용하세요",
+  title: "react-naver-map-sdk",
+  tagline:"네이버 지도를 React에서 쉽게 사용하세요",
   favicon: "img/favicon.ico",
 
   url: "https://ksh5324.github.io",
@@ -18,7 +19,7 @@ const config: Config = {
 
   i18n: {
     defaultLocale: "ko",
-    locales: ["ko", "en"],
+    locales: ["ko"],
   },
 
   presets: [
@@ -35,13 +36,17 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+  
+  customFields: {
+    REACT_APP_NAVER_API_KEY: process.env.REACT_APP_NAVER_API_KEY,
+  },
 
   themeConfig: {
     image: "img/react-naver-map-social-card.jpg",
     navbar: {
-      title: "React-Naver-Map",
+      title: "react-naver-map-sdk",
       logo: {
-        alt: "React-Naver-Map Logo",
+        alt: "react-naver-map-sdk Logo",
         src: "img/logo.svg",
       },
       items: [
@@ -56,10 +61,6 @@ const config: Config = {
           sidebarId: "apiSidebar",
           position: "left",
           label: "API",
-        },
-        {
-          type: "localeDropdown",
-          position: "right",
         },
         {
           href: "https://github.com/ksh5324/react-naver-map-context",
@@ -90,15 +91,13 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} React-Naver-Map. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} react-naver-map-sdk. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-    customFields: {
-      REACT_APP_NAVER_API_KEY: process.env.REACT_APP_NAVER_API_KEY,
-    },
+
   } satisfies Preset.ThemeConfig,
 };
 

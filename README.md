@@ -33,7 +33,7 @@ import { NaverMapProvider, Map, Marker } from 'react-naver-map-sdk';
 
 function App() {
   return (
-    <NaverMapProvider clientId="YOUR_CLIENT_ID">
+    <NaverMapProvider client="YOUR_CLIENT_ID">
       <Map mapId="123">
         <Marker position={{ lat: 37.3595704, lng: 127.105399 }}/>
       </Map>

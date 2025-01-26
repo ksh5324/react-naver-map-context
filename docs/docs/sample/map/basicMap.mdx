@@ -10,23 +10,15 @@ sidebar_position: 1
 
 <LiveEditor>
   {`
+import {Map} from "react-naver-map-sdk";
+import NaverMapLoadProvider from "./NaverMapLoadProvider";
+
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello world ✨</h1>
-      <p>Start editing to see some magic happen!</p>
-    </div>
+    <NaverMapLoadProvider>
+      <Map mapId="map" />
+    </NaverMapLoadProvider>
   );
 }
 `}
 </LiveEditor>
-
-<!-- ```tsx
-export default function BasicMap() {
-  return (
-    <NaverMapProvider client={process.env.REACT_APP_NAVER_API_KEY!}>
-        //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
-        <Map mapId="map">
-    </NaverMapProvider>
-  );
-} -->

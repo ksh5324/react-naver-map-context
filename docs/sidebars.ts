@@ -23,11 +23,6 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "가이드",
-      items: ["guides/marker"],
-    },
-    {
-      type: "category",
       label: "예제",
       link: {
         type: "generated-index",
@@ -48,7 +43,13 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "API",
-      items: ["api/marker"],
+      items: [
+        {
+          type: "category",
+          label: "Classes",
+          items: ["api/classes/marker"],
+        },
+      ],
     },
   ],
 };
