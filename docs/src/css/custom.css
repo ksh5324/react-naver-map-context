@@ -28,3 +28,74 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* API 문서 테이블 스타일 */
+.api-table {
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.api-table table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+/* 짝수 행 배경색 재정의 */
+.api-table table tr:nth-child(2n),
+.api-table table tr {
+  background-color: var(--ifm-table-background) !important;
+  border: none;
+  border-top: 1px solid var(--ifm-table-border-color);
+  border-bottom: 1px solid var(--ifm-table-border-color);
+}
+
+.api-table th {
+  white-space: nowrap;
+  padding: 8px 12px;
+  font-weight: 600;
+  text-align: left;
+  border: none;
+}
+
+.api-table td {
+  padding: 8px 12px;
+  border: none;
+  border-bottom: 1px solid var(--ifm-table-border-color);
+  line-height: 1.4;
+}
+
+/* 열 너비 설정 */
+.api-table th:nth-child(1) {
+  width: 15%;  /* Name 열 */
+}
+
+.api-table th:nth-child(2) {
+  width: 20%;  /* 타입 열 */
+}
+
+.api-table th:nth-child(3) {
+  width: 10%;  /* 필수 여부 열 */
+}
+
+.api-table th:nth-child(4) {
+  width: 10%;  /* 기본값 열 */
+}
+
+.api-table th:nth-child(5) {
+  width: 45%;  /* 설명 열 */
+}
+
+/* Name 스타일링 */
+.api-table td:first-child {
+  color: #E53E3E;  /* 빨간색 */
+  font-family: var(--ifm-font-family-monospace);
+}
+
+/* 타입 스타일링 */
+.api-type {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9em;
+}

@@ -212,6 +212,7 @@ type PolylineEvent =
   | EventType.CLICKABLE_CHANGED
   | EventType.MOUSE_DOWN
   | EventType.MOUSE_OUT
+  | EventType.MOUSE_OVER
   | EventType.MOUSE_UP
   | EventType.VISABLE_CHANGED
   | EventType.ZINDEX_CHANGED;
