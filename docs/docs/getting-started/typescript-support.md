@@ -34,7 +34,7 @@ TypeScript를 사용하면 컴포넌트 props와 이벤트 핸들러에 대한 �
 
 ```typescript
 import React, { useRef } from 'react';
-import { NaverMapProvider, Map, Marker } from 'react-naver-map-context';
+import { NaverMapProvider, Map, Marker } from 'react-naver-map-sdk';
 
 const MapComponent: React.FC = () => {
   const mapRef = useRef<naver.maps.Map>(null);

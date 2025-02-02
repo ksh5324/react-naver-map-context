@@ -13,11 +13,11 @@ react-naver-map-sdk는 npm, yarn, pnpm과 같은 패키지 매니저를 통해 �
 :::
 
 ```bash
-npm install react-naver-map-context
+npm install react-naver-map-sdk
 # or
-yarn add react-naver-map-context
+yarn add react-naver-map-sdk
 # or
-pnpm add react-naver-map-context
+pnpm add react-naver-map-sdk
 ```
 
 ## 기본 사용 예제
@@ -27,7 +27,7 @@ pnpm add react-naver-map-context
 :::
 
 ```jsx
-import NaverMapProvider, Map, Marker from 'react-naver-map-context';
+import NaverMapProvider, Map, Marker from 'react-naver-map-sdk';
 
 function SimpleMap() {
   return (

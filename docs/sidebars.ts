@@ -47,7 +47,17 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: "Classes",
-          items: ["api/classes/marker"],
+          items: [
+            "api/classes/map",
+            "api/classes/marker",
+            "api/classes/polyline",
+            "api/classes/polygon",
+            "api/classes/circle",
+            "api/classes/rectangle",
+            "api/classes/ellipse",
+            "api/classes/info-window",
+            "api/classes/custom-control",
+          ],
         },
       ],
     },
