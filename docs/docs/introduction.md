@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 개요
 
-react-naver-map-sdk는 NAVER Maps API v3를 React 애플리케이션에서 쉽게 사용할 수 있도록 해주는 라이브러리입니다.
+react-naver-map-sdk는 [NAVER Maps API v3](https://navermaps.github.io/maps.js.ncp/docs/index.html)를 React 애플리케이션에서 쉽게 사용할 수 있도록 해주는 라이브러리입니다.
 
 ## 주요 특징
 
