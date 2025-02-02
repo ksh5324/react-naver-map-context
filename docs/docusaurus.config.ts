@@ -47,7 +47,7 @@ const config: Config = {
       title: "react-naver-map-sdk",
       logo: {
         alt: "react-naver-map-sdk Logo",
-        src: "img/logo.svg",
+        src: "img/logo.png",
       },
       items: [
         {
