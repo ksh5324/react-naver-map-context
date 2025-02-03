@@ -34,7 +34,18 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: "지도",
-          items: ["sample/map/basicMap"],
+          link: {
+            type: "generated-index",
+            title: "지도 예제",
+            slug: "/category/sample/map",
+            keywords: ["sample", "map"],
+          },
+          items: [
+            "sample/map/basicMap",
+            "sample/map/mapOptions",
+            "sample/map/mapTypes",
+            "sample/map/mapBounds",
+          ],
         },
       ],
     },
