@@ -10,32 +10,32 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: '선언적이고 직관적인 API',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        컴포넌트 기반 API를 통해 복잡한 지도 기능을 선언적으로 구현할 수 있습니다.
+        직관적인 인터페이스로 빠르게 개발할 수 있습니다.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '자동 스크립트 로딩',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        NaverMapProvider가 필요할 때 자동으로 NAVER Maps API를 로드하여 관리합니다.
+        별도의 스크립트 관리가 필요 없습니다.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'TypeScript 지원',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        완벽한 타입 안정성이 보장된 TypeScript 지원으로 개발 경험을 향상시킵니다.
+        자동완성과 타입 체크를 통해 실수를 방지합니다.
       </>
     ),
   },

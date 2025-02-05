@@ -34,7 +34,18 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: "지도",
-          items: ["sample/map/basicMap"],
+          link: {
+            type: "generated-index",
+            title: "지도 예제",
+            slug: "/category/sample/map",
+            keywords: ["sample", "map"],
+          },
+          items: [
+            "sample/map/basicMap",
+            "sample/map/mapOptions",
+            "sample/map/mapTypes",
+            "sample/map/mapBounds",
+          ],
         },
       ],
     },
@@ -47,7 +58,17 @@ const sidebars: SidebarsConfig = {
         {
           type: "category",
           label: "Classes",
-          items: ["api/classes/marker"],
+          items: [
+            "api/classes/map",
+            "api/classes/marker",
+            "api/classes/polyline",
+            "api/classes/polygon",
+            "api/classes/circle",
+            "api/classes/rectangle",
+            "api/classes/ellipse",
+            "api/classes/info-window",
+            "api/classes/custom-control",
+          ],
         },
       ],
     },

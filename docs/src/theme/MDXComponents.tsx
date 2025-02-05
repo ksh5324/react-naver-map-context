@@ -43,6 +43,29 @@ export default function NaverMapLoadProvider({children}: {children: React.ReactN
   }
 `,
 },
+        "/global.css": {
+          code: `
+button {
+  margin: 0 5px 5px 0;
+  padding: 2px 6px;
+  border: solid 1px #333;
+  cursor: pointer;
+  outline: 0 none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+button.active {
+  background-color: #2780E3;
+  color: #fff;
+}
+
+button.inactive {
+  background-color: #fff;
+  color: #555;
+}
+          `,
+        },
       }}
       options={{
         showLineNumbers: true,

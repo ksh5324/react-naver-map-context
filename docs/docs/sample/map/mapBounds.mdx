@@ -1,0 +1,73 @@
+---
+sidebar_position: 1     
+---
+
+# 지도 좌표 경계 확인하기
+
+지도의 bounds 객체를 이용하는 예제입니다.
+
+> original docs : https://navermaps.github.io/maps.js.ncp/docs/tutorial-4-map-bounds.example.html
+
+<LiveEditor>
+  {`
+import React, {useRef, useState} from "react";
+import {Map, CustomControl, Rectangle} from "react-naver-map-sdk";
+import NaverMapLoadProvider from "./NaverMapLoadProvider";
+
+export default function App() {
+  const ref = useRef<naver.maps.Map>();
+  const recRef = useRef<naver.maps.Rectangle>();
+  const [bounds, setBounds] = useState<naver.maps.Bounds | null>(null);
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    const dokdo = new naver.maps.LatLngBounds(
+      new naver.maps.LatLng(37.2380651, 131.8562652),
+      new naver.maps.LatLng(37.2444436, 131.8786475)
+    );
+
+    ref.current?.fitBounds(dokdo);
+  };
+
+  return (
+    <Map
+      mapId="map"
+      mapOptions={{ center: { lat: 37.5666805, lng: 126.9784147 }, zoom: 10 }}
+      ref={ref}
+      style={{
+        width: "100%",
+        height: "350px",
+      }}
+      onBoundsChanged={(bounds) => {
+        window.setTimeout(() => {
+          recRef.current?.setBounds(bounds);
+        }, 500);
+      }}
+      onInit={() => {
+        const bounds = ref.current?.getBounds();
+        if (bounds) {
+          setBounds(bounds);
+        }
+      }}
+    >
+      <CustomControl position="TOP_LEFT">
+        <button onClick={handleClick}>독도로 이동하기</button>
+      </CustomControl>
+      {bounds !== null && bounds && (
+        <>
+          <Rectangle
+            bounds={bounds}
+            strokeOpacity={0}
+            strokeWeight={0}
+            fillOpacity={0.2}
+            fillColor="#f00"
+            ref={recRef}
+          />
+        </>
+      )}
+    </Map>
+  );
+}
+`}
+</LiveEditor>

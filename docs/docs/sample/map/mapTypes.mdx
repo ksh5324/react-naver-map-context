@@ -1,0 +1,58 @@
+---
+sidebar_position: 1
+---
+
+# 지도 유형 설정하기
+
+지도의 유형을 설정하는 예제입니다.
+
+> original docs : https://navermaps.github.io/maps.js.ncp/docs/tutorial-3-map-types.example.html
+
+<LiveEditor>
+  {`
+import React, { useRef, useState } from "react";
+import {Map, CustomControl} from "react-naver-map-sdk";
+import NaverMapLoadProvider from "./NaverMapLoadProvider";
+import "./global.css";
+export default function App() {
+  const ref = useRef<naver.maps.Map>();
+  const [mapTypeId, setMapTypeId] = useState<string>("NORMAL");
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if(ref.current?.getMapTypeId() !== naver.maps.MapTypeId[e.currentTarget.id as keyof typeof naver.maps.MapTypeId]) {
+      ref.current?.setMapTypeId(naver.maps.MapTypeId[e.currentTarget.id as keyof typeof naver.maps.MapTypeId]);
+      setMapTypeId(e.currentTarget.id);
+    }
+  }
+
+  return (
+    <NaverMapLoadProvider>
+        <Map
+            mapId="map"
+            mapOptions={{ center: { lat: 37.5666805, lng: 126.9784147 }, zoom: 15 }}
+            ref={ref}
+            style={{
+            width: "100%",
+            height: "350px"
+            }}
+        >
+            <CustomControl position="TOP_LEFT">
+                <button id="NORMAL" className={mapTypeId === "NORMAL" ? "active" : "inactive"} onClick={handleClick}>일반지도</button>
+            </CustomControl>
+            <CustomControl position="TOP_LEFT">
+                <button id="TERRAIN" className={mapTypeId === "TERRAIN" ? "active" : "inactive"} onClick={handleClick}>지형도</button>
+            </CustomControl>
+            <CustomControl position="TOP_LEFT">
+                <button id="SATELLITE" className={mapTypeId === "SATELLITE" ? "active" : "inactive"} onClick={handleClick}>위성지도</button>
+            </CustomControl>
+            <CustomControl position="TOP_LEFT">
+                <button id="HYBRID" className={mapTypeId === "HYBRID" ? "active" : "inactive"} onClick={handleClick}>겹쳐보기</button>
+            </CustomControl>
+        </Map>
+    </NaverMapLoadProvider>
+  );
+}
+`}
+</LiveEditor>
