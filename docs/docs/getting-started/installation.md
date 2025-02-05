@@ -55,5 +55,5 @@ function SimpleMap() {
 ## 다음 단계
 
 :::note
-이제 react-naver-map-sdk가 설치되었고 기본적인 사용법을 알아보았습니다. 더 자세한 사용법과 고급 기능은 [예제](../sample/)를 참조하세요.
+이제 react-naver-map-sdk가 설치되었고 기본적인 사용법을 알아보았습니다. 더 자세한 사용법과 고급 기능은 [예제](../category/sample)를 참조하세요.
 :::
