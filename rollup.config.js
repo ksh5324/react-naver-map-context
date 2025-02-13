@@ -12,7 +12,7 @@ const external = [...Object.keys(packageJson.dependencies || {}), ...Object.keys
 
 function getEsbuild() {
     return esbuild({
-        target: 'es2019',
+        target: 'es6',
         jsx: 'automatic',
         minify: true,
         treeShaking: true,

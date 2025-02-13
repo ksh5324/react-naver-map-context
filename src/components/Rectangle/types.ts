@@ -11,5 +11,5 @@ type RectangleOptions = Omit<naver.maps.RectangleOptions, "map" | "bounds"> & {
   bounds: {
     ne: LatLng | Point;
     sw: LatLng | Point;
-  };
+  } | naver.maps.Bounds;
 };

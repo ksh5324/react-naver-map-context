@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import NaverApiLoader from "../../api/NaverScriptLoader";
-import { NaverMapLoadContext } from "../../contexts/naverMapLoadContext";
+import { NaverMapLoadContext, NaverMapClientContext } from "../../contexts/naverMapLoadContext";
 import { useNaverMapProvider } from "./hooks";
 
 import type { PlatFormType } from "../../@types/platform";
@@ -26,9 +26,13 @@ const NaverMapProvider = <T extends PlatFormType>({
   }, []);
 
   return (
-    <NaverMapLoadContext.Provider value={isLoaded}>
-      {children}
-    </NaverMapLoadContext.Provider>
+    <NaverMapClientContext.Provider value={client}>
+      <NaverMapLoadContext.Provider value={isLoaded}>
+        <Suspense fallback={null}>
+          {children}
+        </Suspense>
+      </NaverMapLoadContext.Provider>
+    </NaverMapClientContext.Provider>
   );
 };
 

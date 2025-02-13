@@ -18,15 +18,16 @@ const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
   ref
 ) {
   const [maps, setMaps] = useState<naver.maps.Map>();
-  const naverMapProvidervalue = useMemo(() => ({ map: maps }), [maps]);
+  const naverMapProviderValue = useMemo(() => ({ map: maps }), [maps]);
 
   useNaverEvent(maps, Events);
 
   useMapEffect(() => {
-    setMaps(new NaverApiLoader.instance.Map(mapId, mapOptions));
+    const map = new NaverApiLoader.instance.Map(mapId, mapOptions);
+    setMaps(map);
 
     return () => {
-      maps?.destroy();
+      map.destroy();
     };
   });
 
@@ -39,7 +40,7 @@ const Map = forwardRef<naver.maps.Map | undefined, MapProps>(function Map(
   );
 
   return (
-    <NaverMapContext.Provider value={naverMapProvidervalue}>
+    <NaverMapContext.Provider value={naverMapProviderValue}>
       <div id={mapId} style={style} className={className}>
         {children}
       </div>

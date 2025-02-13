@@ -17,6 +17,7 @@ export { default as useMapEffect } from './hooks/useMapEffect';
 export { default as useNaverEvent } from './hooks/useNaverEvent';
 export { useNaverMap } from './contexts/naverMapContext';
 export { useNaverMapIsLoaded } from './contexts/naverMapLoadContext';
+export { default as useNaverMaps } from './hooks/useNaverMaps';
 
 // Types
 export * from './@types/naverMap';
