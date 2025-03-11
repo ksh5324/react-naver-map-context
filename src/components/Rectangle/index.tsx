@@ -56,7 +56,21 @@ const Rectangle = forwardRef<naver.maps.Rectangle | undefined, RectangleProps>(
       return () => {
         r.setMap(null);
       };
-    }, [naverMap]);
+    }, [
+      naverMap,
+      bounds,
+      strokeWeight,
+      strokeOpacity,
+      strokeColor,
+      strokeStyle,
+      strokeLineCap,
+      strokeLineJoin,
+      fillColor,
+      fillOpacity,
+      clickable,
+      visible,
+      zIndex  
+    ]);
 
     useImperativeHandle(ref, () => {
       return rectangle;
